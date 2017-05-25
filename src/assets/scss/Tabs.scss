@@ -1,0 +1,46 @@
+
+.Tabs {
+
+	h2 {
+		padding: 15px 0 !important;
+	}
+
+	&-list {
+		position: relative;
+		display: flex;
+		margin: 0;
+	}
+
+	&-tab {
+		position: relative;
+		margin: 0;
+		cursor: pointer;
+
+		a {
+			position: relative;
+			color: $gray--dark;
+			display: block;
+			border: 0;
+			padding: 15px 15px 20px;
+			transform: translateY(5px);
+			border-radius: $border-radius;
+
+			&.is-selected {
+				background: white;
+				box-shadow: $box-shadow;
+			}
+		}
+	}
+
+	&-block {
+		background: white;
+		display: none;
+		padding: 15px;
+		box-shadow: $box-shadow;
+		border-radius: $border-radius;
+
+		&.is-selected {
+			display: block;
+		}
+	}
+}

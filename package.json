@@ -1,0 +1,31 @@
+{
+  "name": "wp-better-resource-hints",
+  "author": "Alex MacArthur <alex@macarthur.me>",
+  "email": "alex@macarthur.me",
+  "url": "https://macarthur.me",
+  "description": "Easy preloading, prefetching, and HTTP/2 server pushing for your CSS and JavaScript assets.",
+  "version": "1.0.0",
+  "license": "GPL-2.0",
+  "main": "better-resource-hints.php",
+  "repository": "https://github.com/alexmacarthur/wp-better-resource-hints",
+  "bugs": {
+    "url": "https://github.com/alexmacarthur/wp-better-resource-hints/issues"
+  },
+  "keywords": [
+    "server push",
+    "preload",
+    "css",
+		"javascript",
+		"optimization",
+		"wordpress"
+  ],
+  "devDependencies": {
+    "babili-webpack-plugin": "^0.1.2",
+    "laravel-mix": "^2.1.11"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  }
+}

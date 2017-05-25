@@ -1,0 +1,22 @@
+{
+  "name": "better-resource-hints",
+  "description": "No-nonsense preloading, prefetching, and HTTP/2 server pushing for your CSS and JavaScript assets.",
+  "type": "wordpress-plugin",
+  "minimum-stability": "stable",
+  "license": "GPL-2.0",
+  "authors": [
+    {
+      "name": "Alex MacArthur",
+      "email": "alex@macarthur.me",
+      "homepage": "https://macarthur.me",
+      "role": "Developer"
+    }
+  ],
+  "support" : {
+    "issues": "https://github.com/alexmacarthur/better-resource-hints/issues",
+    "source": "https://github.com/alexmacarthur/better-resource-hints"
+  },
+  "require": {
+    "composer/installers": "^1.0.7"
+  }
+}

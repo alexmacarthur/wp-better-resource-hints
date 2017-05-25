@@ -1,0 +1,76 @@
+.settings_page_better_resource_hints #wpcontent {
+	@import 'variables';
+	@import 'FeedbackList';
+	@import 'PromoBar';
+	@import 'Tabs';
+
+	.options-block {
+		& + .options-block {
+			margin-top: 1rem;
+		}
+	}
+
+	.checkbox-list {
+		margin: .5rem 0;
+
+		&:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+	}
+
+	.InputBlock {
+
+		& + .InputBlock {
+			margin-top: 15px;
+		}
+
+		&-row {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+			align-items: center;
+		}
+
+		&-description:not(.paddingless) {
+			padding-left: 26px;
+		}
+
+		input {
+			margin: 1px 10px 0 0;
+		}
+
+		textarea {
+			border-radius: $border-radius;
+			margin: 10px 0;
+			width: 100%;
+		}
+	}
+
+	.checkbox {
+		float: left;
+		width: 25%;
+		padding: 5px 0;
+
+		@media screen and (max-width: 1200px) {
+			width: 33.33%;
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 50%;
+		}
+	}
+
+	label {
+		a {
+			padding: 0 5px;
+		}
+
+		em {
+			word-break: break-all;
+		}
+	}
+}
+
+
