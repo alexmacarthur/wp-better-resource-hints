@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Better Resource Hints
 * Description: Easy preloading, prefetching, and HTTP/2 server pushing for your CSS and JavaScript.
-* Version: 1.0.0
+* Version: 1.1.0
 * Author: Alex MacArthur
 * Author URI: http://macarthur.me
 * License: GPLv2 or later
@@ -13,6 +13,7 @@ namespace BetterResourceHints;
 
 require_once 'src/Settings.php';
 require_once 'src/Filters.php';
+require_once 'src/Preconnector.php';
 require_once 'src/Preloader.php';
 require_once 'src/Prefetcher.php';
 require_once 'src/Utilities.php';
@@ -42,6 +43,7 @@ class App {
     new Settings;
 		new Preloader;
 		new Prefetcher;
+		new Preconnector;
 
 		add_action( 'admin_enqueue_scripts', array($this, 'enqueue_styles_and_scripts' ));
 	}

@@ -5,6 +5,11 @@
 	@import 'Tabs';
 
 	.options-block {
+
+		h2 {
+			padding: 10px 0 15px 0;
+		}
+
 		& + .options-block {
 			margin-top: 1rem;
 		}

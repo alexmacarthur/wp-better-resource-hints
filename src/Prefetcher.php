@@ -56,6 +56,7 @@ class Prefetcher extends App {
 			if(Utilities::get_option("prefetch_assets_enable_server_push")) {
 				Utilities::construct_server_push_headers('prefetch', $source);
 			}
+
 			echo apply_filters('better_resource_hints_prefetch_tag', "<link rel='prefetch' href='{$source}'/>\n", $handle, $type);
 		}
 	}

@@ -3,7 +3,8 @@
   "description": "No-nonsense preloading, prefetching, and HTTP/2 server pushing for your CSS and JavaScript assets.",
   "type": "wordpress-plugin",
   "minimum-stability": "stable",
-  "license": "GPL-2.0",
+	"license": "GPL-2.0",
+	"version": "1.1.0",
   "authors": [
     {
       "name": "Alex MacArthur",
