@@ -16,10 +16,10 @@ class Utilities extends App {
 	 * @param string $type Type of the asset to be pushed.
 	 * @return void
 	 */
-	public static function construct_server_push_headers($rel, $src, $type = null) {
+	public static function construct_server_push_headers($rel, $src, $type = null, $forceSameHost = true) {
 
 		if(headers_sent()) return;
-		if(strpos($src, site_url()) === false) return;
+		if(strpos($src, site_url()) === false && $forceSameHost) return;
 
 		$header = sprintf(
 			'Link: <%s>; rel=%s; ',
@@ -43,6 +43,13 @@ class Utilities extends App {
     return get_option(self::$options_prefix);
 	}
 
+	/**
+	 * Pass a handle get array of all of it's dependencies, recursively.
+	 *
+	 * @param string $handle
+	 * @param string $type
+	 * @return array
+	 */
 	public static function collect_all_deps($handle, $type = 'scripts') {
 		global ${'wp_' . $type};
 		$handles = [];

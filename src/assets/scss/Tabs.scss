@@ -1,46 +1,69 @@
+.TabHolder {
+	position: relative;
+	margin-bottom: 60px;
+}
 
-.Tabs {
-
-	h2 {
-		padding: 15px 0 !important;
-	}
-
-	&-list {
-		position: relative;
-		display: flex;
-		margin: 0;
-	}
-
-	&-tab {
-		position: relative;
-		margin: 0;
-		cursor: pointer;
-
-		a {
-			position: relative;
-			color: $gray--dark;
-			display: block;
-			border: 0;
-			padding: 15px 15px 20px;
-			transform: translateY(5px);
-			border-radius: $border-radius;
-
-			&.is-selected {
-				background: white;
-				box-shadow: $box-shadow;
-			}
+.Tab {
+	&:nth-child(1) {
+		.Tab-label {
+			left: 0;
 		}
 	}
 
-	&-block {
+	&:nth-child(2) {
+		.Tab-label {
+			left: 33.33%;
+		}
+	}
+
+	&:nth-child(3) {
+		.Tab-label {
+			left: 66.66%;
+		}
+	}
+
+	&-content {
+		border-radius: $border-radius;
+		padding: 15px;
 		background: white;
 		display: none;
-		padding: 15px;
-		box-shadow: $box-shadow;
-		border-radius: $border-radius;
+		position: relative;
+		top: 47px;
+		z-index: 1;
+	}
 
-		&.is-selected {
-			display: block;
+	&-label {
+		height: 50px;
+		position: absolute;
+		top: 0;
+		width: 33.33%;
+		color: $gray--dark;
+		display: block;
+		border: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: $border-radius;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		background: $gray--faded;
+		box-shadow: $box-shadow;
+	}
+
+	&-input {
+		position: fixed;
+		top: -100vh;
+
+		&:checked {
+
+			& + .Tab-label {
+				background: white;
+				font-weight: bold;
+			}
+
+			& ~ .Tab-content {
+				display: block;
+			}
 		}
 	}
 }
