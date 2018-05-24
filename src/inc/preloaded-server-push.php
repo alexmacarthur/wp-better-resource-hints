@@ -8,7 +8,7 @@
 
 	<div class="InputBlock">
 		<div class="InputBlock-row">
-			<label for="preload_assets_enable_server_push">Yes, Server Push Preloaded Styles</label>
+			<label for="preload_assets_enable_server_push">Yes, Server Push Preloaded Assets</label>
 			<input type="checkbox"
 			<?php checked($value, 'on'); ?>
 			id="preload_assets_enable_server_push"

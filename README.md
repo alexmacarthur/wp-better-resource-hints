@@ -108,6 +108,10 @@ As mentioned, the techniques used here are largely supported by modern browsers,
 * Improve user interface. 
 * Improve documentation.
 
+#### 1.1.1
+* Append plugin version to admin assets to ensure they're not cached after updates.
+* Fix miscellaneous UI-related bugs appearing in the admin.
+
 ## Feedback
 You like it? [Email](mailto:alex@macarthur.me) or [tweet](http://www.twitter.com/amacarthur) me. You hate it? [Email](mailto:alex@macarthur.me) or [tweet](http://www.twitter.com/amacarthur) me.
 

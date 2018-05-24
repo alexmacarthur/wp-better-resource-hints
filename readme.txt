@@ -4,8 +4,8 @@ Contributors: alexmacarthur
 Donate link: paypal.me/alexmacarthur
 Tags: performance, resource hints, prefetch, preload, server push, HTTP/2
 Requires at least: 4.0
-Tested up to: 4.9.5
-Stable tag: 1.1.0
+Tested up to: 4.9.6
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -136,6 +136,10 @@ First, ensure your server is configured to support server push. Then, you can us
 * Introduce support for generating preconnect hints.
 * Improve user interface.
 * Improve documentation.
+
+= 1.1.1 =
+* Append plugin version to admin assets to ensure they're not cached after updates.
+* Fix miscellaneous UI-related bugs appearing in the admin.
 
 == Feedback ==
 
