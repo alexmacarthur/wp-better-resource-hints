@@ -7,7 +7,7 @@ class Preconnector extends App {
 	private $hostsToPreconnect = array();
 
   	public function __construct() {
-		add_filter('wp_resource_hints', array($this, 'preconnect_hosts'), 10, 2);
+		add_filter('wp_resource_hints', array($this, 'preconnect_hosts'), 11, 2);
 	}
 
 	/**
@@ -26,7 +26,16 @@ class Preconnector extends App {
 				Utilities::construct_server_push_headers('preconnect', $url, null, false);
 			}
 
-			echo apply_filters('better_resource_hints_preconnect_tag', "<link rel='preconnect' href='{$url}'/>\n", $url);
+			if(gettype($url) !== 'string') continue;
+
+			$parsedURL = wp_parse_url($url);
+			unset($parsedURL["scheme"]);
+
+			$reconstructedURL = isset($parsedURL['host'])
+				? '//' . $parsedURL['host']
+				: '//' . join("", $parsedURL);
+
+			echo apply_filters('better_resource_hints_preconnect_tag', "<link rel='preconnect' href='{$reconstructedURL}'/>\n", $reconstructedURL);
 		}
 
 		return $urls;

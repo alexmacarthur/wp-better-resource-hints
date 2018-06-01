@@ -87,7 +87,7 @@ class Preloader extends App {
 		}
 
 		//-- Loop through and print preload tags.
-		foreach($handlesToPreload as $handle) {
+		foreach(array_unique($handlesToPreload) as $handle) {
 			$resource = ${'wp_' . $type}->registered[$handle];
 
 			if(empty($resource->src)) continue;

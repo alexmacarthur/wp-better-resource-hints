@@ -40,7 +40,7 @@ class Prefetcher extends App {
 		// }
 
 		//-- Loop through and print preload tags.
-		foreach($specificHandlesToPrefetch as $handle) {
+		foreach(array_unique($specificHandlesToPrefetch) as $handle) {
 			$resource = isset(${'wp_' . $type}->registered[$handle])
 				? ${'wp_' . $type}->registered[$handle]
 				: false;

@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Better Resource Hints
 * Description: Easy preloading, prefetching, HTTP/2 server pushing, and more for your CSS and JavaScript.
-* Version: 1.1.1
+* Version: 1.1.2
 * Author: Alex MacArthur
 * Author URI: http://macarthur.me
 * License: GPLv2 or later
