@@ -52,9 +52,17 @@ class Utilities extends App {
 	 */
 	public static function collect_all_deps($handle, $type = 'scripts') {
 		global ${'wp_' . $type};
+		$assets = ${'wp_' . $type};
 		$handles = [];
 
-		foreach(${'wp_' . $type}->registered[$handle]->deps as $dep) {
+		$registeredScripts = isset($assets->registered) ? $assets->registered : null;
+
+		//-- We have no registered scripts. Get outta here.
+		if(empty($registeredScripts)) {
+			return $handles;
+		}
+
+		foreach($assets->registered[$handle]->deps as $dep) {
 			$handles[] = $dep;
 			$handles = array_merge($handles, self::collect_all_deps($dep, $type));
 		}
