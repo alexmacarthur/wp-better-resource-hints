@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Better Resource Hints
 * Description: Easy preloading, prefetching, HTTP/2 server pushing, and more for your CSS and JavaScript.
-* Version: 1.1.2
+* Version: 1.1.3
 * Author: Alex MacArthur
 * Author URI: http://macarthur.me
 * License: GPLv2 or later
@@ -24,26 +24,33 @@ if ( !defined( 'WPINC' ) ) {
   die;
 }
 
+define('BETTER_RESOURCE_HINTS_OPTIONS_PREFIX', 'better_resource_hints');
+define('BETTER_RESOURCE_HINTS_ADMIN_SETTINGS_PAGE_SLUG', 'better_resource_hints');
+
 class App {
 
-	private static $instance;
+	/**
+	 * Initialize the plugin.
+	 *
+	 * @return object App Instance of class.
+	 */
+	public static function go()
+	{
+			$GLOBALS[ __CLASS__ ] = new self;
+			return $GLOBALS[ __CLASS__ ];
+	}
 
-	protected static $plugin_data = null;
-  protected static $options_prefix = 'better_resource_hints';
-  protected static $admin_settings_page_slug = 'better_resource_hints';
-  protected static $copy = array(
-    'public' => 'Better Resource Hints'
-  );
-
-  public static function init() {
-    if(!isset(self::$instance) && !(self::$instance instanceof App)) {
-			self::$instance = new App;
-		}
-  }
+	/**
+	 * Retrive array of plugin data.
+	 *
+	 * @return array
+	 */
+	public static function getPluginData()
+	{
+		return get_plugin_data(__FILE__);
+	}
 
   public function __construct() {
-		self::$plugin_data = get_plugin_data(__DIR__ . '/better-resource-hints.php');
-
 		new Filters;
     new Settings;
 		new Preloader;
@@ -59,10 +66,11 @@ class App {
    * @return void
    */
   public function enqueue_styles_and_scripts() {
-    wp_enqueue_style( 'better-resource-hints', plugin_dir_url( __FILE__ ) . 'src/assets/css/style.css', array(), self::$plugin_data['Version']);
-    wp_enqueue_script( 'better-resource-hints', plugin_dir_url( __FILE__ ) . 'src/assets/js/scripts.min.js', array(), self::$plugin_data['Version'], true);
+		$plugin_data = self::getPluginData();
+    wp_enqueue_style( 'better-resource-hints', plugin_dir_url( __FILE__ ) . 'src/assets/css/style.css', [], $plugin_data['Version']);
+    wp_enqueue_script( 'better-resource-hints', plugin_dir_url( __FILE__ ) . 'src/assets/js/scripts.min.js', [], $plugin_data['Version'], true);
   }
 
 }
 
-App::init();
+App::go();

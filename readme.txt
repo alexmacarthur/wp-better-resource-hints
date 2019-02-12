@@ -3,9 +3,10 @@
 Contributors: alexmacarthur
 Donate link: paypal.me/alexmacarthur
 Tags: performance, resource hints, prefetch, preload, server push, HTTP/2
+Requires PHP: 5.6
 Requires at least: 4.0
-Tested up to: 4.9.6
-Stable tag: 1.1.2
+Tested up to: 5.0.3
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +146,13 @@ First, ensure your server is configured to support server push. Then, you can us
 * Fix bug causing duplicate preload links being generated for some assets.
 * Fix bug causing preconnect links to have incorrectly formatted `href` values.
 * Fix typos in documentation.
+
+= 1.1.3 =
+* Add fallback for cases when no assets are registered.
+* Clean up plugin code structure.
+* Switch from yarn to npm for JS package management.
+* Update preload polyfill for CSS preloading.
+* More intelligently load preload polyfill.
 
 == Feedback ==
 

@@ -119,6 +119,13 @@ As mentioned, the techniques used here are largely supported by modern browsers,
 * Fix bug causing preconnect links to have incorrectly formatted `href` values.
 * Fix typos in documentation.
 
+#### 1.1.3
+* Add fallback for cases when no assets are registered.
+* Clean up plugin code structure.
+* Switch from yarn to npm for JS package management.
+* Update preload polyfill for CSS preloading.
+* More intelligently load preload polyfill.
+
 ## Feedback
 You like it? [Email](mailto:alex@macarthur.me) or [tweet](http://www.twitter.com/amacarthur) me. You hate it? [Email](mailto:alex@macarthur.me) or [tweet](http://www.twitter.com/amacarthur) me.
 

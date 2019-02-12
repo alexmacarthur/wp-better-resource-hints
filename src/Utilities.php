@@ -2,7 +2,7 @@
 
 namespace BetterResourceHints;
 
-class Utilities extends App {
+class Utilities {
 
 	public static function strip_spaces($string) {
 		return trim(preg_replace('/\s+/', '', $string));
@@ -31,7 +31,7 @@ class Utilities extends App {
 			$header .= 'as=' . $type;
 		}
 
-		header(apply_filters(self::$options_prefix . '_header', $header, $rel, $src, $type), false);
+		header(apply_filters(BETTER_RESOURCE_HINTS_OPTIONS_PREFIX . '_header', $header, $rel, $src, $type), false);
 	}
 
   /**
@@ -40,7 +40,7 @@ class Utilities extends App {
    * @return array
    */
   public static function get_options() {
-    return get_option(self::$options_prefix);
+    return get_option(BETTER_RESOURCE_HINTS_OPTIONS_PREFIX);
 	}
 
 	/**
@@ -91,6 +91,6 @@ class Utilities extends App {
    * @return string
    */
   public static function get_field_name($name) {
-    return self::$options_prefix . '[' . $name . ']';
+    return BETTER_RESOURCE_HINTS_OPTIONS_PREFIX . '[' . $name . ']';
   }
 }

@@ -1,11 +1,11 @@
 <?php
 	namespace BetterResourceHints;
-  use BetterResourceHints\App;
+  	use BetterResourceHints\App;
 ?>
 
 <div class="PromoBar">
 
-	<h2 class="PromoBar-title">Has <em><?php echo App::$copy['public']; ?></em> been useful? Share the news!</h2>
+	<h2 class="PromoBar-title">Has <em>Better Resource Hints</em> been useful? Share the news!</h2>
 
 	<ul class="FeedbackList">
 		<li class="FeedbackList-item FeedbackItem">

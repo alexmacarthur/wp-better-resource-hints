@@ -2,7 +2,7 @@
 
 namespace BetterResourceHints;
 
-class Preconnector extends App {
+class Preconnector {
 
 	private $hostsToPreconnect = array();
 

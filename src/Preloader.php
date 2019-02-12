@@ -2,7 +2,7 @@
 
 namespace BetterResourceHints;
 
-class Preloader extends App {
+class Preloader {
 
   public function __construct() {
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_load_css_js'));
@@ -43,7 +43,11 @@ class Preloader extends App {
 	}
 
   	public function enqueue_load_css_js() {
-    	wp_enqueue_script( 'loadcss', plugin_dir_url( __FILE__ ) . 'assets/js/preload.min.js', array(), null);
+		$preloadOption = Utilities::get_option('preload_styles_option');
+
+		if($preloadOption !== 'no_styles') {
+			wp_enqueue_script( 'loadcss', plugin_dir_url( __FILE__ ) . 'assets/js/preload.min.js', array(), null);
+		}
   	}
 
 	/**
@@ -61,7 +65,7 @@ class Preloader extends App {
 			$queue = ${'wp_' . $type}->queue;
 			unset(${'wp_' . $type}->queue[array_search($handle, $queue)]);
 
-			return str_replace('as=', 'onload="this.rel=\'stylesheet\'" as=', $tag);
+			return str_replace('as=', 'onload="this.onload=null;this.rel=\'stylesheet\'" as=', $tag);
 		}
 
 		return $tag;

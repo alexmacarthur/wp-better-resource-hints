@@ -37,4 +37,4 @@ mix.options({
 mix
   .sass('src/assets/scss/style.scss', 'src/assets/css/style.css')
   .js('src/assets/js/scripts.js', 'src/assets/js/scripts.min.js')
-  .js('src/assets/js/preload.js', 'src/assets/js/preload.min.js')
+	.copy('./node_modules/fg-loadcss/dist/cssrelpreload.min.js', 'src/assets/js/preload.min.js');

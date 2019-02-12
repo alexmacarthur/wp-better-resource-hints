@@ -2,7 +2,7 @@
 
 namespace BetterResourceHints;
 
-class Prefetcher extends App {
+class Prefetcher {
 
   	public function __construct() {
 		add_action('wp_head', array($this, 'prefetch_javascript'), 1);

@@ -2,7 +2,7 @@
 
 namespace BetterResourceHints;
 
-class Filters extends App {
+class Filters {
 
 	public function __construct() {
 		add_filter('style_loader_tag', array($this, 'add_id_to_style_tags'), 10, 4);

@@ -5,7 +5,7 @@ namespace BetterResourceHints;
 
 require_once 'Utilities.php';
 
-class Settings extends App {
+class Settings {
 
   public $options;
   public $github_url = '';
@@ -25,9 +25,9 @@ class Settings extends App {
 	}
 
 	public function reset_active_tab() {
-		$options = get_option(self::$options_prefix);
+		$options = get_option(BETTER_RESOURCE_HINTS_OPTIONS_PREFIX);
 		unset($options['last-active-tab']);
-		update_option(self::$options_prefix, $options);
+		update_option(BETTER_RESOURCE_HINTS_OPTIONS_PREFIX, $options);
 	}
 
   /**
@@ -36,7 +36,7 @@ class Settings extends App {
    * @return void
    */
   public function better_resource_hints_settings_page() {
-		add_submenu_page('options-general.php', self::$copy['public'] . ' Settings', self::$copy['public'], 'edit_posts', self::$options_prefix, array($this, 'settings_page_callback'));
+		add_submenu_page('options-general.php', 'Better Resource Hints Settings', 'Better Resource Hints', 'edit_posts', BETTER_RESOURCE_HINTS_OPTIONS_PREFIX, array($this, 'settings_page_callback'));
   }
 
   /**
@@ -47,7 +47,7 @@ class Settings extends App {
   public function settings_page_callback() {
   ?>
     <div id="BRCSettingsPage" class="wrap">
-      <h1><?php echo self::$copy['public']; ?> Settings</h1>
+      <h1>Better Resource Hints Settings</h1>
 
       <div id="poststuff">
         <div id="post-body" class="metabox-holder columns-2">
@@ -55,8 +55,8 @@ class Settings extends App {
             <form method="post" action="options.php">
               <?php wp_nonce_field('update-options'); ?>
               <?php
-                settings_fields( self::$options_prefix . '_settings' );
-                do_settings_sections( self::$admin_settings_page_slug );
+                settings_fields( BETTER_RESOURCE_HINTS_OPTIONS_PREFIX . '_settings' );
+                do_settings_sections( BETTER_RESOURCE_HINTS_ADMIN_SETTINGS_PAGE_SLUG );
                 submit_button();
               ?>
             </form>
@@ -78,7 +78,7 @@ class Settings extends App {
    * @return void
    */
   public function register_main_setting() {
-    register_setting( self::$options_prefix . '_settings', self::$options_prefix);
+    register_setting( BETTER_RESOURCE_HINTS_OPTIONS_PREFIX . '_settings', BETTER_RESOURCE_HINTS_OPTIONS_PREFIX);
   }
 
   /**
@@ -87,7 +87,7 @@ class Settings extends App {
    * @return void
    */
   public function register_settings () {
-    add_settings_section( self::$options_prefix . '_tabs', '', array( $this, 'cb_tabs' ), self::$admin_settings_page_slug );
+    add_settings_section( BETTER_RESOURCE_HINTS_OPTIONS_PREFIX . '_tabs', '', array( $this, 'cb_tabs' ), BETTER_RESOURCE_HINTS_ADMIN_SETTINGS_PAGE_SLUG );
   }
 
   /**
