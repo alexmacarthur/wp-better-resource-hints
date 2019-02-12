@@ -1,7 +1,8 @@
 <?php
-	use BetterResourceHints\Utilities;
-	$value = Utilities::get_option("preconnect_hosts_option");
-	$value = !$value ? 'external_assets' : $value;
+    use BetterResourceHints\Utilities;
+
+$value = Utilities::get_option("preconnect_hosts_option");
+    $value = !$value ? 'external_assets' : $value;
 ?>
 
 <div class="options-block">

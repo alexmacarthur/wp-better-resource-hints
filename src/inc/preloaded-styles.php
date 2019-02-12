@@ -1,8 +1,9 @@
 <?php
-	use BetterResourceHints\Utilities;
-	$value = Utilities::get_option("preload_styles_option");
-	$valueHandles = Utilities::get_option("preload_styles_handles");
-	$value = !$value ? 'no_styles' : $value;
+    use BetterResourceHints\Utilities;
+
+$value = Utilities::get_option("preload_styles_option");
+    $valueHandles = Utilities::get_option("preload_styles_handles");
+    $value = !$value ? 'no_styles' : $value;
 ?>
 
 <div class="options-block">
@@ -51,7 +52,9 @@
 		</div>
 		<div class="InputBlock-row">
 			<textarea
-			<?php if($value !== 'choose_styles'){ echo 'style="display: none;"'; }; ?>
+			<?php if ($value !== 'choose_styles') {
+    echo 'style="display: none;"';
+}; ?>
 			name="<?php echo Utilities::get_field_name("preload_styles_handles"); ?>"><?php echo $valueHandles; ?></textarea>
 		</div>
 	</div>

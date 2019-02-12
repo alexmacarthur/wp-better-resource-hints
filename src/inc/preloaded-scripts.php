@@ -1,8 +1,9 @@
 <?php
-	use BetterResourceHints\Utilities;
-	$value = Utilities::get_option("preload_scripts_option");
-	$valueHandles = Utilities::get_option("preload_scripts_handles");
-	$value = !$value ? 'footer_scripts' : $value;
+    use BetterResourceHints\Utilities;
+
+$value = Utilities::get_option("preload_scripts_option");
+    $valueHandles = Utilities::get_option("preload_scripts_handles");
+    $value = !$value ? 'footer_scripts' : $value;
 ?>
 
 <div class="options-block">
@@ -65,7 +66,9 @@
 		</div>
 		<div class="InputBlock-row">
 			<textarea
-			<?php if($value !== 'choose_scripts'){ echo 'style="display: none;"'; }; ?>
+			<?php if ($value !== 'choose_scripts') {
+    echo 'style="display: none;"';
+}; ?>
 			name="<?php echo Utilities::get_field_name("preload_scripts_handles"); ?>"><?php echo $valueHandles; ?></textarea>
 		</div>
 	</div>

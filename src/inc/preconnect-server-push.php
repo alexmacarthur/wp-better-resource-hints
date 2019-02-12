@@ -1,6 +1,7 @@
 <?php
-	use BetterResourceHints\Utilities;
-	$value = Utilities::get_option("preconnect_hosts_enable_server_push");
+    use BetterResourceHints\Utilities;
+
+$value = Utilities::get_option("preconnect_hosts_enable_server_push");
 ?>
 
 <div class="options-block">
