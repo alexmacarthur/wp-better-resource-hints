@@ -68,11 +68,13 @@ class Utilities
         if (empty($registeredScripts)) {
             return $handles;
         }
-
-        foreach ($assets->registered[$handle]->deps as $dep) {
-            $handles[] = $dep;
-            $handles = array_merge($handles, self::collect_all_deps($dep, $type));
-        }
+		
+		if( !empty($assets->registered[$handle]->deps) ){
+			foreach ($assets->registered[$handle]->deps as $dep) {
+				$handles[] = $dep;
+				$handles = array_merge($handles, self::collect_all_deps($dep, $type));
+			}
+		}
 
         return array_unique($handles);
     }
